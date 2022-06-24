@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rapido/screens/singin.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -37,18 +38,26 @@ class HomeScreen extends StatelessWidget {
                         onPressed: () {},
                         child: const Text("SignUp"),
                         style: ElevatedButton.styleFrom(
+                          side: BorderSide(width: 1.0, color: Colors.purple),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8)),
                           primary: Colors.transparent,
                         ),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignIn()),
+                          );
+                        },
                         child: const Text("LogIn"),
                         style: ElevatedButton.styleFrom(
+                          primary: Colors.blue,
+                          side: BorderSide(width: 1.0, color: Colors.blue),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8)),
-                          primary: Colors.blue,
                         ),
                       ),
                     ],
