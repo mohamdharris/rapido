@@ -15,7 +15,7 @@ class _VehicleState extends State<Vehicle> {
   final Completer<GoogleMapController> _controller = Completer();
   static const LatLng sourceLocation = LatLng(37.33500926, -122.03272188);
   static const LatLng destination = LatLng(37.33429383, -122.06600055);
-  int _currentstep = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

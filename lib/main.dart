@@ -4,6 +4,7 @@ import 'package:rapido/screens/location.dart';
 import 'package:rapido/screens/map.dart';
 import 'package:rapido/screens/vehicles.dart';
 
+import 'screens/calender.dart';
 import 'screens/payment.dart';
 
 void main() {
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Vehicle(),
+      home: const HomeScreen(),
     );
   }
 }
