@@ -2,15 +2,16 @@ import 'dart:async';
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:rapido/screens/payment.dart';
 
-class Payment extends StatefulWidget {
-  const Payment({Key? key}) : super(key: key);
+class Vehicle extends StatefulWidget {
+  const Vehicle({Key? key}) : super(key: key);
 
   @override
-  State<Payment> createState() => _PaymentState();
+  State<Vehicle> createState() => _VehicleState();
 }
 
-class _PaymentState extends State<Payment> {
+class _VehicleState extends State<Vehicle> {
   final Completer<GoogleMapController> _controller = Completer();
   static const LatLng sourceLocation = LatLng(37.33500926, -122.03272188);
   static const LatLng destination = LatLng(37.33429383, -122.06600055);
@@ -26,7 +27,7 @@ class _PaymentState extends State<Payment> {
               return Padding(
                 padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
                 child: SizedBox(
-                  height: 500,
+                  height: 230,
                   child: Center(
                     child: SingleChildScrollView(
                       child: Column(
@@ -38,7 +39,7 @@ class _PaymentState extends State<Payment> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    const Text(
+                                    Text(
                                       "Your driver is comming in 2:35",
                                       style: TextStyle(
                                           color: Colors.black,
@@ -46,7 +47,7 @@ class _PaymentState extends State<Payment> {
                                     ),
                                     TextButton(
                                         onPressed: () {},
-                                        child: const Text(
+                                        child: Text(
                                           "Cancel Ride",
                                           style: TextStyle(
                                               color: Colors.grey,
@@ -133,132 +134,20 @@ class _PaymentState extends State<Payment> {
                                 Divider(),
                                 Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Icon(
-                                      Icons.announcement,
-                                      color: Colors.grey[300],
-                                    ),
-                                    const Text(
-                                        "You're sharing your ride with others going your way.\n Other Passengers may be added",
-                                        style: TextStyle(fontSize: 13))
-                                  ],
-                                ),
-                                Divider(),
-                                Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      const Text(
-                                        "TRIP",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      TextButton(
-                                          onPressed: () {},
-                                          child: Text('Edit Ride'))
-                                    ]),
-                                Stepper(
-                                  steps: const [
-                                    Step(
-                                        title: Text('874 Hildegard Crossing'),
-                                        content: Text('7.15PM')),
-                                    Step(
-                                        title: Text('Picking up Selena'),
-                                        content: Text('Pickup')),
-                                    Step(
-                                        title: Text('Dropping off Selena'),
-                                        content: Text('Drop-off')),
-                                    Step(
-                                        title: Text('27 Sawayn Square'),
-                                        content: Text('9.30PM')),
-                                  ],
-                                  onStepTapped: (int newIndex) {
-                                    setState(() {
-                                      _currentstep = newIndex;
-                                    });
-                                  },
-                                  currentStep: _currentstep,
-                                  onStepContinue: () {
-                                    if (_currentstep != 3) {
-                                      setState(() {
-                                        _currentstep += 1;
-                                      });
-                                    }
-                                  },
-                                  onStepCancel: () {
-                                    if (_currentstep != 0) {
-                                      setState(() {
-                                        _currentstep -= 1;
-                                      });
-                                    }
-                                  },
-                                ),
-                                Divider(),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    const Text(
-                                      "PAYMENT",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    TextButton(
-                                        onPressed: () {},
-                                        child: Text('Split cost'))
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: const [
-                                    Text(
-                                      "US\$35.50",
-                                      style: TextStyle(
-                                          fontSize: 25,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: const [
-                                    SizedBox(
-                                      height: 40,
-                                      width: 150,
-                                      child: Image(
-                                          image: NetworkImage(
-                                              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgntuitVdm4yaXhnmP4j0SLLsSjhmKj4MijQ&usqp=CAU")),
-                                    ),
-                                    SizedBox(
-                                      height: 40,
-                                      width: 150,
-                                      child: Image(
-                                          image: NetworkImage(
-                                              "https://dharmamerchantservices.com/wp-content/uploads/2017/06/visa-logo-white-background.png")),
-                                    )
-                                  ],
-                                ),
-                                Divider(),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       height: 40,
                                       width: 160,
                                       child: ElevatedButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const Payment()),
+                                          );
+                                        },
                                         child: const Text("MESSAGE"),
                                         style: ElevatedButton.styleFrom(
                                             side: const BorderSide(

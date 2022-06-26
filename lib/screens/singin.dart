@@ -7,34 +7,43 @@ class SignIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: bgColour,
-        // appBar: AppBar(),
-        body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const Text(
+    return Scaffold(
+      backgroundColor: bgColour,
+      appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          leading: const Icon(
+            Icons.arrow_back_outlined,
+            color: Colors.black,
+          )),
+      body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        const Padding(
+          padding: EdgeInsets.fromLTRB(16, 10, 16, 5),
+          child: Text(
             'Create your account',
-            style: TextStyle(fontSize: 16),
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 5, 16, 10),
+          child: Row(
             children: [
               const Text(
                 'Already have an account',
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(
-                width: 10,
-              ),
-              ElevatedButton(onPressed: () {}, child: const Text('LogIn'))
+              TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'LogIn',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ))
             ],
           ),
-          const SizedBox(
-            height: 30,
-          ),
-          ListTile(
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 5, 16, 10),
+          child: ListTile(
             title: const Text(
               "Email",
               style: TextStyle(fontWeight: FontWeight.bold),
@@ -53,10 +62,10 @@ class SignIn extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          ListTile(
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 0, 16, 10),
+          child: ListTile(
             title: const Text(
               "Password",
               style: TextStyle(fontWeight: FontWeight.bold),
@@ -68,6 +77,7 @@ class SignIn extends StatelessWidget {
                   fontFamily: 'Lexend Deca'),
               decoration: InputDecoration(
                 hintText: 'Enter your password',
+                suffixIcon: const Icon(Icons.visibility),
                 // labelText: 'Password',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -75,7 +85,10 @@ class SignIn extends StatelessWidget {
               ),
             ),
           ),
-          ListTile(
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 0, 16, 10),
+          child: ListTile(
             title: const Text(
               "Phone Number",
               style: TextStyle(fontWeight: FontWeight.bold),
@@ -93,32 +106,106 @@ class SignIn extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
-            child: SizedBox(
-              height: 30,
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Location()),
-                  );
-                },
-                child: Text("SignUp"),
-                style: OutlinedButton.styleFrom(
-                    backgroundColor: Colors.purple,
-                    side: BorderSide(width: 1.0, color: Colors.purple),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8))),
-              ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 5, 30, 10),
+          child: SizedBox(
+            height: 45,
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Location()),
+                );
+              },
+              child: const Text("SignUp"),
+              style: OutlinedButton.styleFrom(
+                  backgroundColor: Colors.purple,
+                  side: const BorderSide(width: 1.0, color: Colors.purple),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8))),
             ),
           ),
-        ]),
-      ),
+        ),
+        const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Center(
+            child: Text(
+              'Or sign up with social account',
+              style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 16, 0, 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: const [
+              SizedBox(
+                  height: 50,
+                  width: 150,
+                  child: Image(
+                      image: NetworkImage(
+                          "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"))),
+              SizedBox(
+                  height: 50,
+                  width: 150,
+                  child: Image(
+                      image: NetworkImage(
+                          "http://assets.stickpng.com/images/58e9196deb97430e819064f6.png")))
+            ],
+          ),
+        ),
+        ListTile(
+          title: Row(
+            children: [
+              const Text(
+                'By clicking "Singn Up" you agree to our',
+                style: TextStyle(
+                    fontSize: 11,
+                    // fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: const Text(
+                  'term and conditions',
+                  style: TextStyle(
+                    fontSize: 11,
+                  ),
+                ),
+              )
+            ],
+          ),
+          subtitle: Row(
+            children: [
+              const Text(
+                'as well as our ',
+                style: TextStyle(
+                    fontSize: 11,
+                    // fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: const Text(
+                  'privacy policy',
+                  style: TextStyle(
+                    fontSize: 11,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ]),
     );
   }
 }
